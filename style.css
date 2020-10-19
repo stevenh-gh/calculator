@@ -1,0 +1,11 @@
+#calc-container {
+    border: 1px solid rgb(133, 191, 241);
+    background-color: lightblue;
+    display: grid;
+}
+
+#btn-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
