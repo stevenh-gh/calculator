@@ -14,7 +14,11 @@ const operate = (operator, a, b) => {
 
 const btnContainer = document.querySelector('#btn-container');
 const buttons = btnContainer.querySelectorAll('.buttons');
+const input = document.querySelector('input');
+input.value = 0;
 
 buttons.forEach(button => {
-	button.addEventListener('click', e => console.log(e.target.textContent))
+	button.addEventListener('click', e => {
+		input.value = e.target.textContent;
+	});
 });
