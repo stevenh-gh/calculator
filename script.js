@@ -16,11 +16,11 @@ const btnContainer = document.querySelector('#btn-container');
 const buttons = btnContainer.querySelectorAll('.buttons');
 const input = document.querySelector('input');
 input.value = 0;
-// buttons[0].childNodes[1].value
+
 buttons.forEach(button => {
 	button.addEventListener('click', e => {
 		if (input.value !== '0') {
-			input.value += e.target.textContent;
-		} else { input.value = e.target.textContent; }
+			input.value += e.target.value;
+		} else { input.value = e.target.value; }
 	});
 });
