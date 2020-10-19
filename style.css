@@ -9,6 +9,21 @@
     grid-template-rows: repeat(2, 250px);
 }
 
+#txt-container {
+    justify-self: center;
+    align-self: center;
+}
+
+#textbox {
+    height: 200px;
+    width: 475px;
+}
+
+input {
+    text-align: right;
+    font-size: 90px;
+}
+
 #btn-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -23,9 +38,5 @@
 button {
     height: 60px;
     width: 115px;
-}
-
-#textbox {
-    height: 200px;
-    width: 475px;
+    font-size: 26px;
 }
