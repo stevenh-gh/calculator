@@ -19,6 +19,8 @@ input.value = 0;
 
 buttons.forEach(button => {
 	button.addEventListener('click', e => {
-		input.value = e.target.textContent;
+		if (input.value != '0') {
+			input.value += e.target.textContent;
+		} else { input.value = e.target.textContent; }
 	});
 });
