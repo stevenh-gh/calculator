@@ -11,3 +11,10 @@ const operate = (operator, a, b) => {
 		case 'divide': return divide(a, b);
 	}
 };
+
+const btnContainer = document.querySelector('#btn-container');
+const buttons = btnContainer.querySelectorAll('.buttons');
+
+buttons.forEach(button => {
+	button.addEventListener('click', e => console.log(e.target.textContent))
+});
