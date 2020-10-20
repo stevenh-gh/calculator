@@ -23,9 +23,11 @@ buttons.forEach(button => {
 		let btnClass = e.target.parentElement.classList[1];
 
 		if (btnClass === 'operand') {
-			if (input.value !== '0' && input.value.length !== 9) {
-				input.value += e.target.value;
-			} else { input.value = e.target.value; }
+			if (input.value.length !== 9) {
+				if (input.value !== '0') {
+					input.value += e.target.value;
+				} else { input.value = e.target.value; }
+			}
 		} else if (btnClass === 'operator') {
 			console.log(e.target.value);
 		} else if (btnClass === 'equals') {
