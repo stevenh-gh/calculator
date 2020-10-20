@@ -29,10 +29,13 @@ buttons.forEach(button => {
 				} else { input.value = e.target.value; }
 			}
 		} else if (btnClass === 'operator') {
+			input.value = '';
 			console.log(e.target.value);
 		} else if (btnClass === 'equals') {
+			input.value = '';
 			console.log(e.target.value);
 		} else if (btnClass === 'clear') {
+			input.value = '';
 			console.log(e.target.value);
 		}
 	});
