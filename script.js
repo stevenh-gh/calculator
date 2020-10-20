@@ -20,10 +20,18 @@ input.value = 0;
 
 buttons.forEach(button => {
 	button.addEventListener('click', e => {
-		if (e.target.parentElement.classList[1] === 'operand') {
+		let btnClass = e.target.parentElement.classList[1];
+
+		if (btnClass === 'operand') {
 			if (input.value !== '0') {
 				input.value += e.target.value;
 			} else { input.value = e.target.value; }
+		} else if (btnClass === 'operator') {
+			console.log(e.target.value);
+		} else if (btnClass === 'equals') {
+			console.log(e.target.value);
+		} else if (btnClass === 'clear') {
+			console.log(e.target.value);
 		}
 	});
 });
