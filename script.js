@@ -18,24 +18,30 @@ const buttons = btnContainer.querySelectorAll('.buttons');
 const input = document.querySelector('input');
 input.value = 0;
 
+let isPrevClickOperator = false;
 buttons.forEach(button => {
 	button.addEventListener('click', e => {
 		let btnClass = e.target.parentElement.classList[1];
 
 		if (btnClass === 'operand') {
+			if (isPrevClickOperator) {
+				console.log('in prevclick');
+				input.value = '';
+				isPrevClickOperator = false;
+			}
 			if (input.value.length !== 9) {
 				if (input.value !== '0') {
 					input.value += e.target.value;
 				} else { input.value = e.target.value; }
 			}
 		} else if (btnClass === 'operator') {
-			input.value = '';
+			isPrevClickOperator = true;
 			console.log(e.target.value);
 		} else if (btnClass === 'equals') {
 			input.value = '';
 			console.log(e.target.value);
 		} else if (btnClass === 'clear') {
-			input.value = '';
+			input.value = '0';
 			console.log(e.target.value);
 		}
 	});
