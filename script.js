@@ -34,44 +34,60 @@ buttons.forEach(button => {
 
                 switch (btnClass) {
                         case 'operand':
-                                if (isPrevClickOperator) {
-                                        console.log('in prevclick');
-                                        input.value = '';
-                                        isPrevClickOperator = false;
-                                }
-                                if (input.value.length !== 9) {
-                                        if (input.value !== '0') {
-                                                input.value += e.target.value;
-                                        } else { input.value = e.target.value; }
-                                }
+                                caseOperand(e);
                                 break;
                         case 'operator':
-                                isPrevClickOperator = true;
-                                console.log(e.target.value);
-                                queue.push(input.value);
-                                queue.push(e.target.value);
-                                console.log(queue);
-
-                                if (queue.length > 3) {
-                                        answer = operate(queue[0], queue[1], queue[2]);
-                                        input.value = answer;
-                                        queue = [answer, e.target.value];
-                                }
+                                caseOperator(e);
                                 break;
                         case 'equals':
-                                queue.push(input.value);
-                                console.log(queue);
-                                answer = operate(queue[0], queue[1], queue[2]);
-                                input.value = answer;
-                                queue = [];
-                                console.log(e.target.value);
-                                isPrevClickOperator = true;
+                                caseEquals(e);
                                 break;
                         case 'clear':
-                                input.value = '0';
-                                queue = [];
-                                console.log(e.target.value);
+                                caseClear(e);
                                 break;
                 }
         });
 });
+
+const caseClear = (e) => {
+        input.value = '0';
+        queue = [];
+        console.log(e.target.value);
+}
+
+const caseEquals = (e) => {
+        queue.push(input.value);
+        console.log(queue);
+        answer = operate(queue[0], queue[1], queue[2]);
+        input.value = answer;
+        queue = [];
+        console.log(e.target.value);
+        isPrevClickOperator = true;
+}
+
+const caseOperator = (e) => {
+        isPrevClickOperator = true;
+        console.log(e.target.value);
+        queue.push(input.value);
+        queue.push(e.target.value);
+        console.log(queue);
+
+        if (queue.length > 3) {
+                answer = operate(queue[0], queue[1], queue[2]);
+                input.value = answer;
+                queue = [answer, e.target.value];
+        }
+}
+
+const caseOperand = (e) => {
+        if (isPrevClickOperator) {
+                console.log('in prevclick');
+                input.value = '';
+                isPrevClickOperator = false;
+        }
+        if (input.value.length !== 9) {
+                if (input.value !== '0') {
+                        input.value += e.target.value;
+                } else { input.value = e.target.value; }
+        }
+}
