@@ -44,7 +44,7 @@ const caseClear = (e) => {
 const caseEquals = (e) => {
         queue.push(input.value);
         console.log(queue);
-        answer = operate(queue[0], queue[1], queue[2]);
+        answer = operate(queue[0], queue[1], queue[2]).toString().length > 9 ? operate(queue[0], queue[1], queue[2]).toPrecision(4) : operate(queue[0], queue[1], queue[2]);
         input.value = answer;
         queue = [];
         console.log(e.target.value);
@@ -59,7 +59,7 @@ const caseOperator = (e) => {
         console.log(queue);
 
         if (queue.length > 3) {
-                answer = operate(queue[0], queue[1], queue[2]);
+                answer = operate(queue[0], queue[1], queue[2]).toString().length > 9 ? operate(queue[0], queue[1], queue[2]).toPrecision(4) : operate(queue[0], queue[1], queue[2]);
                 input.value = answer;
                 queue = [answer, e.target.value];
         }
