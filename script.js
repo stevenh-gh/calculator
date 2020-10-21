@@ -42,27 +42,32 @@ const caseClear = (e) => {
 };
 
 const caseEquals = (e) => {
-        queue.push(input.value);
-        console.log(queue);
-        answer = formatAnswer();
-        input.value = answer;
-        queue = [];
-        console.log(e.target.value);
+        if (!isPrevClickOperator) {
+                queue.push(input.value);
+                console.log(queue);
+                answer = formatAnswer();
+                input.value = answer;
+                queue = [];
+                console.log(e.target.value);
+        }
         isPrevClickOperator = true;
 };
 
 const caseOperator = (e) => {
-        isPrevClickOperator = true;
-        console.log(e.target.value);
-        queue.push(input.value);
-        queue.push(e.target.value);
-        console.log(queue);
+        if (!isPrevClickOperator) {
+                console.log(e.target.value);
+                queue.push(input.value);
+                queue.push(e.target.value);
+                console.log(queue);
 
-        if (queue.length > 3) {
-                answer = formatAnswer();
-                input.value = answer;
-                queue = [answer, e.target.value];
+                if (queue.length > 3) {
+                        answer = formatAnswer();
+                        input.value = answer;
+                        queue = [answer, e.target.value];
+                }
         }
+        isPrevClickOperator = true;
+
 };
 
 const caseOperand = (e) => {
