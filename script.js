@@ -39,7 +39,7 @@ const caseClear = (e) => {
         input.value = '0';
         queue = [];
         console.log(e.target.value);
-}
+};
 
 const caseEquals = (e) => {
         queue.push(input.value);
@@ -49,7 +49,7 @@ const caseEquals = (e) => {
         queue = [];
         console.log(e.target.value);
         isPrevClickOperator = true;
-}
+};
 
 const caseOperator = (e) => {
         isPrevClickOperator = true;
@@ -63,7 +63,7 @@ const caseOperator = (e) => {
                 input.value = answer;
                 queue = [answer, e.target.value];
         }
-}
+};
 
 const caseOperand = (e) => {
         if (isPrevClickOperator) {
@@ -76,7 +76,7 @@ const caseOperand = (e) => {
                         input.value += e.target.value;
                 } else { input.value = e.target.value; }
         }
-}
+};
 
 const chooseBtnClass = (btnClass, e) => {
         switch (btnClass) {
@@ -93,6 +93,6 @@ const chooseBtnClass = (btnClass, e) => {
                         caseClear(e);
                         break;
         }
-}
+};
 
 const formatAnswer = () => operate(queue[0], queue[1], queue[2]).toString().length > 9 ? operate(queue[0], queue[1], queue[2]).toPrecision(4) : operate(queue[0], queue[1], queue[2]);
