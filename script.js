@@ -95,4 +95,7 @@ const chooseBtnClass = (btnClass, e) => {
         }
 };
 
-const formatAnswer = () => operate(queue[0], queue[1], queue[2]).toString().length > 9 ? operate(queue[0], queue[1], queue[2]).toPrecision(4) : operate(queue[0], queue[1], queue[2]);
+const formatAnswer = () => {
+        let answer = operate(queue[0], queue[1], queue[2]);
+        return answer.toString().length > 9 ? answer.toPrecision(4) : answer;
+};
