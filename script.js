@@ -31,21 +31,7 @@ let answer;
 buttons.forEach(button => {
         button.addEventListener('click', e => {
                 let btnClass = e.target.parentElement.classList[1];
-
-                switch (btnClass) {
-                        case 'operand':
-                                caseOperand(e);
-                                break;
-                        case 'operator':
-                                caseOperator(e);
-                                break;
-                        case 'equals':
-                                caseEquals(e);
-                                break;
-                        case 'clear':
-                                caseClear(e);
-                                break;
-                }
+                chooseBtnClass(btnClass, e);
         });
 });
 
@@ -89,5 +75,22 @@ const caseOperand = (e) => {
                 if (input.value !== '0') {
                         input.value += e.target.value;
                 } else { input.value = e.target.value; }
+        }
+}
+
+const chooseBtnClass = (btnClass, e) => {
+        switch (btnClass) {
+                case 'operand':
+                        caseOperand(e);
+                        break;
+                case 'operator':
+                        caseOperator(e);
+                        break;
+                case 'equals':
+                        caseEquals(e);
+                        break;
+                case 'clear':
+                        caseClear(e);
+                        break;
         }
 }
