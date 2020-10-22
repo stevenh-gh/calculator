@@ -54,18 +54,18 @@ const caseEquals = (e) => {
 };
 
 const caseOperator = (e) => {
+        console.log(e.target.value);
         if (!isPrevClickOperator) {
-                console.log(e.target.value);
                 queue.push(input.value);
                 queue.push(e.target.value);
-                console.log(queue);
-
+                
                 if (queue.length > 3) {
                         answer = formatAnswer();
                         input.value = answer;
                         queue = [answer, e.target.value];
                 }
         }
+        console.log(queue);
         isPrevClickOperator = true;
 
 };
@@ -81,6 +81,7 @@ const caseOperand = (e) => {
                         input.value += e.target.value;
                 } else { input.value = e.target.value; }
         }
+        console.log(queue);
 };
 
 const chooseBtnClass = (btnClass, e) => {
