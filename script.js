@@ -47,7 +47,7 @@ const caseEquals = (e) => {
                 queue.push(input.value);
                 answer = formatAnswer();
                 input.value = answer;
-                queue = [];
+                queue = [answer];
                 console.log(e.target.value);
         }
         isPrevClickOperator = true;
