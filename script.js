@@ -26,7 +26,7 @@ input.value = 0;
 let isPrevClickOperator = false;
 
 let queue = [];
-let answer;
+let answer = 0;
 
 buttons.forEach(button => {
         button.addEventListener('click', e => {
@@ -42,12 +42,12 @@ const caseClear = (e) => {
 };
 
 const caseEquals = (e) => {
-        if (!isPrevClickOperator) {
+        console.log(queue);
+        if (!isPrevClickOperator && queue.length > 1) {
                 queue.push(input.value);
-                console.log(queue);
                 answer = formatAnswer();
                 input.value = answer;
-                queue = [];
+                queue = input.value;
                 console.log(e.target.value);
         }
         isPrevClickOperator = true;
